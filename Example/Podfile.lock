@@ -1,0 +1,19 @@
+PODS:
+  - KVOBlock (0.1.0)
+  - ScrollviewBatchFetchingable (0.1.0):
+    - KVOBlock
+
+DEPENDENCIES:
+  - ScrollviewBatchFetchingable (from `../`)
+
+EXTERNAL SOURCES:
+  ScrollviewBatchFetchingable:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KVOBlock: d28ae7f1254a5d11cd9919d27b94a6b4fd468047
+  ScrollviewBatchFetchingable: e9e202a08b800e619054e9f7cb79bd73b6dabdd8
+
+PODFILE CHECKSUM: 978dc5fb6dc55e2128e0cd0848774f0155f7ca0d
+
+COCOAPODS: 1.0.0

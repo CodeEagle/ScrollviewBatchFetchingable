@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ScrollviewBatchFetchingable_Example' do
+  pod 'ScrollviewBatchFetchingable', :path => '../'
+
+  target 'ScrollviewBatchFetchingable_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

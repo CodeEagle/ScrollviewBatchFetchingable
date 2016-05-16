@@ -1,0 +1,6 @@
+framework module ScrollviewBatchFetchingable {
+  umbrella header "ScrollviewBatchFetchingable-umbrella.h"
+
+  export *
+  module * { export * }
+}
