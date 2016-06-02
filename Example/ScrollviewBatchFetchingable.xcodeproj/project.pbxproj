@@ -7,29 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		027EB9BE3CD80CDCBB348B84 /* Pods_ScrollviewBatchFetchingable_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E83F3B43499A00D0FD325E /* Pods_ScrollviewBatchFetchingable_Tests.framework */; };
+		16061A941D002D8200055A4B /* ScrollviewBatchFetchingable.h in Headers */ = {isa = PBXBuildFile; fileRef = 16061A931D002D8200055A4B /* ScrollviewBatchFetchingable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16061A981D002D8200055A4B /* ScrollviewBatchFetchingable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */; };
+		16061A991D002D8200055A4B /* ScrollviewBatchFetchingable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16061A9F1D002DC300055A4B /* UIScrollView+SSBatchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16061A9E1D002DC300055A4B /* UIScrollView+SSBatchContext.swift */; };
+		16061AA11D002DEC00055A4B /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16061AA01D002DEC00055A4B /* KVOBlock.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		F0553625807C01551809B3E8 /* Pods_ScrollviewBatchFetchingable_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7EB17F14AB711D4005A7CB6 /* Pods_ScrollviewBatchFetchingable_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
+		16061A961D002D8200055A4B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteGlobalIDString = 16061A901D002D8200055A4B;
 			remoteInfo = ScrollviewBatchFetchingable;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		16061A9D1D002D8200055A4B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				16061A991D002D8200055A4B /* ScrollviewBatchFetchingable.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		04E83F3B43499A00D0FD325E /* Pods_ScrollviewBatchFetchingable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrollviewBatchFetchingable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1251EF2E66F124E3D83F4652 /* Pods-ScrollviewBatchFetchingable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollviewBatchFetchingable_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Tests/Pods-ScrollviewBatchFetchingable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScrollviewBatchFetchingable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16061A931D002D8200055A4B /* ScrollviewBatchFetchingable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollviewBatchFetchingable.h; sourceTree = "<group>"; };
+		16061A951D002D8200055A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16061A9E1D002DC300055A4B /* UIScrollView+SSBatchContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+SSBatchContext.swift"; path = "../../Source/UIScrollView+SSBatchContext.swift"; sourceTree = "<group>"; };
+		16061AA01D002DEC00055A4B /* KVOBlock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KVOBlock.framework; path = Carthage/Build/iOS/KVOBlock.framework; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ScrollviewBatchFetchingable_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollviewBatchFetchingable_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,56 +56,49 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* ScrollviewBatchFetchingable_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollviewBatchFetchingable_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6B88D0C1F1954DA6852580D6 /* Pods-ScrollviewBatchFetchingable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollviewBatchFetchingable_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Tests/Pods-ScrollviewBatchFetchingable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6DCEC2FD8C62CBB65D6DA126 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7BF9A3AD398864F53621F211 /* ScrollviewBatchFetchingable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ScrollviewBatchFetchingable.podspec; path = ../ScrollviewBatchFetchingable.podspec; sourceTree = "<group>"; };
-		86A9A4008A7D0215173C27DA /* Pods-ScrollviewBatchFetchingable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollviewBatchFetchingable_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Example/Pods-ScrollviewBatchFetchingable_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8901BCBD203B73B75DA0426E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		B7EB17F14AB711D4005A7CB6 /* Pods_ScrollviewBatchFetchingable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrollviewBatchFetchingable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F14C81FD21033DC67B2264E5 /* Pods-ScrollviewBatchFetchingable_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrollviewBatchFetchingable_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Example/Pods-ScrollviewBatchFetchingable_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		16061A8D1D002D8200055A4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16061AA11D002DEC00055A4B /* KVOBlock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0553625807C01551809B3E8 /* Pods_ScrollviewBatchFetchingable_Example.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		607FACE21AFB9204008FA782 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				027EB9BE3CD80CDCBB348B84 /* Pods_ScrollviewBatchFetchingable_Tests.framework in Frameworks */,
+				16061A981D002D8200055A4B /* ScrollviewBatchFetchingable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45C97393853CCCC2C90631FC /* Frameworks */ = {
+		16061A921D002D8200055A4B /* ScrollviewBatchFetchingable */ = {
 			isa = PBXGroup;
 			children = (
-				B7EB17F14AB711D4005A7CB6 /* Pods_ScrollviewBatchFetchingable_Example.framework */,
-				04E83F3B43499A00D0FD325E /* Pods_ScrollviewBatchFetchingable_Tests.framework */,
+				16061A9E1D002DC300055A4B /* UIScrollView+SSBatchContext.swift */,
+				16061A931D002D8200055A4B /* ScrollviewBatchFetchingable.h */,
+				16061A951D002D8200055A4B /* Info.plist */,
 			);
-			name = Frameworks;
+			path = ScrollviewBatchFetchingable;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				16061AA01D002DEC00055A4B /* KVOBlock.framework */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ScrollviewBatchFetchingable */,
-				607FACE81AFB9204008FA782 /* Tests */,
+				16061A921D002D8200055A4B /* ScrollviewBatchFetchingable */,
 				607FACD11AFB9204008FA782 /* Products */,
-				78293EC0AD2F06157258BBF0 /* Pods */,
-				45C97393853CCCC2C90631FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* ScrollviewBatchFetchingable_Example.app */,
-				607FACE51AFB9204008FA782 /* ScrollviewBatchFetchingable_Tests.xctest */,
+				16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,23 +133,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,60 +143,57 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		78293EC0AD2F06157258BBF0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				86A9A4008A7D0215173C27DA /* Pods-ScrollviewBatchFetchingable_Example.debug.xcconfig */,
-				F14C81FD21033DC67B2264E5 /* Pods-ScrollviewBatchFetchingable_Example.release.xcconfig */,
-				1251EF2E66F124E3D83F4652 /* Pods-ScrollviewBatchFetchingable_Tests.debug.xcconfig */,
-				6B88D0C1F1954DA6852580D6 /* Pods-ScrollviewBatchFetchingable_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		16061A8E1D002D8200055A4B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16061A941D002D8200055A4B /* ScrollviewBatchFetchingable.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* ScrollviewBatchFetchingable_Example */ = {
+		16061A901D002D8200055A4B /* ScrollviewBatchFetchingable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ScrollviewBatchFetchingable_Example" */;
+			buildConfigurationList = 16061A9A1D002D8200055A4B /* Build configuration list for PBXNativeTarget "ScrollviewBatchFetchingable" */;
 			buildPhases = (
-				461F5DD30E57E310367D7CA6 /* 📦 Check Pods Manifest.lock */,
-				607FACCC1AFB9204008FA782 /* Sources */,
-				607FACCD1AFB9204008FA782 /* Frameworks */,
-				607FACCE1AFB9204008FA782 /* Resources */,
-				EF20868E2B05A10B56717042 /* 📦 Embed Pods Frameworks */,
-				DFE8787BD394D358BB4A5F7E /* 📦 Copy Pods Resources */,
+				16061AA21D002DF400055A4B /* Carthage */,
+				16061A8C1D002D8200055A4B /* Sources */,
+				16061A8D1D002D8200055A4B /* Frameworks */,
+				16061A8E1D002D8200055A4B /* Headers */,
+				16061A8F1D002D8200055A4B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = ScrollviewBatchFetchingable;
+			productName = ScrollviewBatchFetchingable;
+			productReference = 16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		607FACCF1AFB9204008FA782 /* ScrollviewBatchFetchingable_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ScrollviewBatchFetchingable_Example" */;
+			buildPhases = (
+				607FACCC1AFB9204008FA782 /* Sources */,
+				607FACCD1AFB9204008FA782 /* Frameworks */,
+				607FACCE1AFB9204008FA782 /* Resources */,
+				16061A9D1D002D8200055A4B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16061A971D002D8200055A4B /* PBXTargetDependency */,
 			);
 			name = ScrollviewBatchFetchingable_Example;
 			productName = ScrollviewBatchFetchingable;
 			productReference = 607FACD01AFB9204008FA782 /* ScrollviewBatchFetchingable_Example.app */;
 			productType = "com.apple.product-type.application";
-		};
-		607FACE41AFB9204008FA782 /* ScrollviewBatchFetchingable_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ScrollviewBatchFetchingable_Tests" */;
-			buildPhases = (
-				31919EE07FF1339D27D1091F /* 📦 Check Pods Manifest.lock */,
-				607FACE11AFB9204008FA782 /* Sources */,
-				607FACE21AFB9204008FA782 /* Frameworks */,
-				607FACE31AFB9204008FA782 /* Resources */,
-				5FE4E8FDD7F6BBC12304ED87 /* 📦 Embed Pods Frameworks */,
-				32B9B56F15A2FB76EFD72250 /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
-			);
-			name = ScrollviewBatchFetchingable_Tests;
-			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* ScrollviewBatchFetchingable_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -209,16 +201,15 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					16061A901D002D8200055A4B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					607FACE41AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -236,12 +227,19 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* ScrollviewBatchFetchingable_Example */,
-				607FACE41AFB9204008FA782 /* ScrollviewBatchFetchingable_Tests */,
+				16061A901D002D8200055A4B /* ScrollviewBatchFetchingable */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		16061A8F1D002D8200055A4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,109 +250,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE31AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		31919EE07FF1339D27D1091F /* 📦 Check Pods Manifest.lock */ = {
+		16061AA21D002DF400055A4B /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/KVOBlock.framework",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		32B9B56F15A2FB76EFD72250 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Tests/Pods-ScrollviewBatchFetchingable_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		461F5DD30E57E310367D7CA6 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5FE4E8FDD7F6BBC12304ED87 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Tests/Pods-ScrollviewBatchFetchingable_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DFE8787BD394D358BB4A5F7E /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Example/Pods-ScrollviewBatchFetchingable_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF20868E2B05A10B56717042 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScrollviewBatchFetchingable_Example/Pods-ScrollviewBatchFetchingable_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		16061A8C1D002D8200055A4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16061A9F1D002DC300055A4B /* UIScrollView+SSBatchContext.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,21 +288,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE11AFB9204008FA782 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
+		16061A971D002D8200055A4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* ScrollviewBatchFetchingable_Example */;
-			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+			target = 16061A901D002D8200055A4B /* ScrollviewBatchFetchingable */;
+			targetProxy = 16061A961D002D8200055A4B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -402,6 +318,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		16061A9B1D002D8200055A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ScrollviewBatchFetchingable/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.ScrollviewBatchFetchingable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		16061A9C1D002D8200055A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ScrollviewBatchFetchingable/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.ScrollviewBatchFetchingable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -486,9 +458,9 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86A9A4008A7D0215173C27DA /* Pods-ScrollviewBatchFetchingable_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ScrollviewBatchFetchingable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -499,9 +471,9 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F14C81FD21033DC67B2264E5 /* Pods-ScrollviewBatchFetchingable_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ScrollviewBatchFetchingable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -510,43 +482,17 @@
 			};
 			name = Release;
 		};
-		607FACF31AFB9204008FA782 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1251EF2E66F124E3D83F4652 /* Pods-ScrollviewBatchFetchingable_Tests.debug.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		607FACF41AFB9204008FA782 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B88D0C1F1954DA6852580D6 /* Pods-ScrollviewBatchFetchingable_Tests.release.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		16061A9A1D002D8200055A4B /* Build configuration list for PBXNativeTarget "ScrollviewBatchFetchingable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16061A9B1D002D8200055A4B /* Debug */,
+				16061A9C1D002D8200055A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ScrollviewBatchFetchingable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -561,15 +507,6 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ScrollviewBatchFetchingable_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				607FACF31AFB9204008FA782 /* Debug */,
-				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

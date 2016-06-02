@@ -1,6 +1,0 @@
-framework module Pods_ScrollviewBatchFetchingable_Tests {
-  umbrella header "Pods-ScrollviewBatchFetchingable_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
