@@ -10,8 +10,8 @@
 		16061A941D002D8200055A4B /* ScrollviewBatchFetchingable.h in Headers */ = {isa = PBXBuildFile; fileRef = 16061A931D002D8200055A4B /* ScrollviewBatchFetchingable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16061A981D002D8200055A4B /* ScrollviewBatchFetchingable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */; };
 		16061A991D002D8200055A4B /* ScrollviewBatchFetchingable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16061A9F1D002DC300055A4B /* UIScrollView+SSBatchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16061A9E1D002DC300055A4B /* UIScrollView+SSBatchContext.swift */; };
 		16061AA11D002DEC00055A4B /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16061AA01D002DEC00055A4B /* KVOBlock.framework */; };
+		166F12E31D0031D400778775 /* UIScrollView+SSBatchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F12E21D0031D400778775 /* UIScrollView+SSBatchContext.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -47,8 +47,8 @@
 		16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScrollviewBatchFetchingable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16061A931D002D8200055A4B /* ScrollviewBatchFetchingable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollviewBatchFetchingable.h; sourceTree = "<group>"; };
 		16061A951D002D8200055A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16061A9E1D002DC300055A4B /* UIScrollView+SSBatchContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+SSBatchContext.swift"; path = "../../Source/UIScrollView+SSBatchContext.swift"; sourceTree = "<group>"; };
 		16061AA01D002DEC00055A4B /* KVOBlock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KVOBlock.framework; path = Carthage/Build/iOS/KVOBlock.framework; sourceTree = "<group>"; };
+		166F12E21D0031D400778775 /* UIScrollView+SSBatchContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+SSBatchContext.swift"; path = "Source/UIScrollView+SSBatchContext.swift"; sourceTree = SOURCE_ROOT; };
 		607FACD01AFB9204008FA782 /* ScrollviewBatchFetchingable_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollviewBatchFetchingable_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		16061A921D002D8200055A4B /* ScrollviewBatchFetchingable */ = {
 			isa = PBXGroup;
 			children = (
-				16061A9E1D002DC300055A4B /* UIScrollView+SSBatchContext.swift */,
+				166F12E21D0031D400778775 /* UIScrollView+SSBatchContext.swift */,
 				16061A931D002D8200055A4B /* ScrollviewBatchFetchingable.h */,
 				16061A951D002D8200055A4B /* Info.plist */,
 			);
@@ -275,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16061A9F1D002DC300055A4B /* UIScrollView+SSBatchContext.swift in Sources */,
+				166F12E31D0031D400778775 /* UIScrollView+SSBatchContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +492,7 @@
 				16061A9C1D002D8200055A4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ScrollviewBatchFetchingable" */ = {
 			isa = XCConfigurationList;
