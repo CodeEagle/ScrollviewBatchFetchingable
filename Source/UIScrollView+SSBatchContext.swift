@@ -19,20 +19,20 @@ public final class SSBatchContext {
 
 	private lazy var _state: SSBatchContextState = SSBatchContextState.Completed
 
-	private let _lockQueue = dispatch_queue_create("com.SelfStudio.SSBatchContext.LockQueue", nil)
+	private let _lockQueue = DispatchQueue.init(label: "com.SelfStudio.SSBatchContext.LockQueue")
 
-	private func performLock(closure: () -> ()) {
-		dispatch_sync(_lockQueue) { closure() }
+	private func performLock(closure: () -> Void) {
+        _lockQueue.sync(execute: closure)
 	}
 
 	public var fetching: Bool {
-		let sem = dispatch_semaphore_create(0)
+		let sem = DispatchSemaphore(value: 0)
 		var isFetching = false
-		dispatch_async(_lockQueue, { () -> Void in
-			isFetching = self._state == .Fetching
-			dispatch_semaphore_signal(sem)
-		})
-		dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER)
+        _lockQueue.async { 
+            isFetching = self._state == .Fetching
+            sem.signal()
+        }
+        _ = sem.wait(timeout: DispatchTime.distantFuture)
 		return isFetching
 	}
 
@@ -72,14 +72,14 @@ private final class ScrollObserver: NSObject {
 	}
 
 	private func addObserver() {
-		_scrollview?.observeKeyPath("contentOffset", withBlock: { [weak self](_, _, _) in
+		_scrollview?.observeKeyPath("contentOffset", with: { [weak self](_, _, _) in
 			guard let sself = self, value = sself._scrollview else { return }
 
 			if sself._context._state != .Fetching && value.ss_leadingScreensForBatching > 0 {
 
 				let bounds = value.bounds
 				// no fetching for null states
-				if CGRectEqualToRect(bounds, CGRectZero) { return }
+				if bounds.equalTo(CGRect.zero) { return }
 
 				let leadingScreens = value.ss_leadingScreensForBatching
 				let contentSize = value.contentSize
@@ -109,10 +109,10 @@ private final class ScrollObserver: NSObject {
 
 					if let p = value as? ScrollviewBatchFetchingable {
 						sself._context._state = .Fetching
-						p.scrollView(value, willBeginBatchFetchWithContext: sself._context)
+						p.scrollView(scrollView: value, willBeginBatchFetchWithContext: sself._context)
 					} else {
 						sself._context._state = .Fetching
-						sself._delegate?.scrollView(value, willBeginBatchFetchWithContext: sself._context)
+						sself._delegate?.scrollView(scrollView: value, willBeginBatchFetchWithContext: sself._context)
 					}
 
 				}
