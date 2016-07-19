@@ -161,7 +161,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16061A9A1D002D8200055A4B /* Build configuration list for PBXNativeTarget "ScrollviewBatchFetchingable" */;
 			buildPhases = (
-				16061AA21D002DF400055A4B /* Carthage */,
 				16061A8C1D002D8200055A4B /* Sources */,
 				16061A8D1D002D8200055A4B /* Frameworks */,
 				16061A8E1D002D8200055A4B /* Headers */,
@@ -251,24 +250,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		16061AA21D002DF400055A4B /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/KVOBlock.framework",
-			);
-			name = Carthage;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		16061A8C1D002D8200055A4B /* Sources */ = {
