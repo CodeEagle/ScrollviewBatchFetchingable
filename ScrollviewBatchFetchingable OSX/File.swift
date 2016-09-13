@@ -13,11 +13,11 @@ private struct AssociatedKeys {
     static var Observer = "Observer"
 }
 
-public enum SSBatchContextState { case Fetching, Cancelled, Completed }
+public enum SSBatchContextState { case fetching, cancelled, completed }
 
 public final class SSBatchContext {
     
-    private lazy var _state: SSBatchContextState = SSBatchContextState.Completed
+    fileprivate lazy var _state: SSBatchContextState = .completed
     
     private let _lockQueue = DispatchQueue.init(label: "com.SelfStudio.SSBatchContext.LockQueue")
     
@@ -29,7 +29,7 @@ public final class SSBatchContext {
         let sem = DispatchSemaphore(value: 0)
         var isFetching = false
         _lockQueue.async {
-            isFetching = self._state == .Fetching
+            isFetching = self._state == .fetching
             sem.signal()
         }
         _ = sem.wait(timeout: DispatchTime.distantFuture)
@@ -37,20 +37,20 @@ public final class SSBatchContext {
     }
     
     public func batchFetchingWasCancelled() {
-        performLock { self._state = .Cancelled }
+        performLock { self._state = .cancelled }
     }
     
     public func completeBatchFetching(didComplete: Bool) {
         if !didComplete { return }
-        performLock { self._state = .Completed }
+        performLock { self._state = .completed }
     }
     
     public func beginBatchFetching() {
-        performLock { self._state = .Fetching }
+        performLock { self._state = .fetching }
     }
     
     public func cancelBatchFetching() {
-        performLock { self._state = .Cancelled }
+        performLock { self._state = .cancelled }
     }
 }
 
@@ -73,10 +73,10 @@ private final class ScrollObserver: NSObject {
     
     private func addObserver() {
         _scrollview?.contentView.postsBoundsChangedNotifications = true
-        NotificationCenter.default().addObserver(forName: NSNotification.Name.NSViewBoundsDidChange, object: _scrollview?.contentView, queue: OperationQueue.main()) {[weak self] (note) in
-            guard let sself = self, value = sself._scrollview else { return }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSViewBoundsDidChange, object: _scrollview?.contentView, queue: OperationQueue.main) {[weak self] (note) in
+            guard let sself = self, let value = sself._scrollview else { return }
             
-            if sself._context._state != .Fetching && value.ss_leadingScreensForBatching > 0 {
+            if sself._context._state != .fetching && value.ss_leadingScreensForBatching > 0 {
                 
                 let bounds = value.bounds
                 // no fetching for null states
@@ -109,10 +109,10 @@ private final class ScrollObserver: NSObject {
                 if remainingDistance <= triggerDistance && remainingDistance > 0 {
                     
                     if let p = value as? ScrollviewBatchFetchingable {
-                        sself._context._state = .Fetching
+                        sself._context._state = .fetching
                         p.scrollView(scrollView: value, willBeginBatchFetchWithContext: sself._context)
                     } else {
-                        sself._context._state = .Fetching
+                        sself._context._state = .fetching
                         sself._delegate?.scrollView(scrollView: value, willBeginBatchFetchWithContext: sself._context)
                     }
                     

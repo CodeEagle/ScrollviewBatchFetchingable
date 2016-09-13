@@ -13,15 +13,15 @@ private struct AssociatedKeys {
 	static var Observer = "Observer"
 }
 
-public enum SSBatchContextState { case Fetching, Cancelled, Completed }
+public enum SSBatchContextState { case fetching, cancelled, completed }
 
 public final class SSBatchContext {
 
-	private lazy var _state: SSBatchContextState = SSBatchContextState.Completed
+	fileprivate lazy var _state: SSBatchContextState = SSBatchContextState.completed
 
-	private let _lockQueue = DispatchQueue.init(label: "com.SelfStudio.SSBatchContext.LockQueue")
+	fileprivate let _lockQueue = DispatchQueue.init(label: "com.SelfStudio.SSBatchContext.LockQueue")
 
-	private func performLock(closure: () -> Void) {
+	fileprivate func performLock(_ closure: () -> Void) {
         _lockQueue.sync(execute: closure)
 	}
 
@@ -29,7 +29,7 @@ public final class SSBatchContext {
 		let sem = DispatchSemaphore(value: 0)
 		var isFetching = false
         _lockQueue.async { 
-            isFetching = self._state == .Fetching
+            isFetching = self._state == .fetching
             sem.signal()
         }
         _ = sem.wait(timeout: DispatchTime.distantFuture)
@@ -37,27 +37,27 @@ public final class SSBatchContext {
 	}
 
 	public func batchFetchingWasCancelled() {
-		performLock { self._state = .Cancelled }
+		performLock { self._state = .cancelled }
 	}
 
-	public func completeBatchFetching(didComplete: Bool) {
+	public func completeBatchFetching(_ didComplete: Bool) {
 		if !didComplete { return }
-		performLock { self._state = .Completed }
+		performLock { self._state = .completed }
 	}
 
 	public func beginBatchFetching() {
-		performLock { self._state = .Fetching }
+		performLock { self._state = .fetching }
 	}
 
 	public func cancelBatchFetching() {
-		performLock { self._state = .Cancelled }
+		performLock { self._state = .cancelled }
 	}
 }
 
 private final class ScrollObserver: NSObject {
 
-	private weak var _scrollview: UIScrollView?
-	private lazy var _context: SSBatchContext = SSBatchContext()
+	fileprivate weak var _scrollview: UIScrollView?
+	fileprivate lazy var _context: SSBatchContext = SSBatchContext()
 
 	weak var _delegate: ScrollviewBatchFetchingable?
 
@@ -71,11 +71,11 @@ private final class ScrollObserver: NSObject {
 		_delegate = nil
 	}
 
-	private func addObserver() {
+	fileprivate func addObserver() {
 		_scrollview?.observeKeyPath("contentOffset", with: { [weak self](_, _, _) in
-			guard let sself = self, value = sself._scrollview else { return }
+			guard let sself = self, let value = sself._scrollview else { return }
 
-			if sself._context._state != .Fetching && value.ss_leadingScreensForBatching > 0 {
+			if sself._context._state != .fetching && value.ss_leadingScreensForBatching > 0 {
 
 				let bounds = value.bounds
 				// no fetching for null states
@@ -108,11 +108,11 @@ private final class ScrollObserver: NSObject {
 				if remainingDistance <= triggerDistance && remainingDistance > 0 {
 
 					if let p = value as? ScrollviewBatchFetchingable {
-						sself._context._state = .Fetching
-						p.scrollView(scrollView: value, willBeginBatchFetchWithContext: sself._context)
+						sself._context._state = .fetching
+						p.scrollView(value, willBeginBatchFetchWithContext: sself._context)
 					} else {
-						sself._context._state = .Fetching
-						sself._delegate?.scrollView(scrollView: value, willBeginBatchFetchWithContext: sself._context)
+						sself._context._state = .fetching
+						sself._delegate?.scrollView(value, willBeginBatchFetchWithContext: sself._context)
 					}
 
 				}
@@ -147,17 +147,17 @@ public extension UIScrollView {
 		}
 	}
 
-	private var ss_ob: ScrollObserver? {
+	fileprivate var ss_ob: ScrollObserver? {
 		get { return objc_getAssociatedObject(self, &AssociatedKeys.Observer) as? ScrollObserver }
 		set(ob) { objc_setAssociatedObject(self, &AssociatedKeys.Observer, ob, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
 	}
 
-	public func setBatchDelegate(delegate: ScrollviewBatchFetchingable?) {
+	public func setBatchDelegate(_ delegate: ScrollviewBatchFetchingable?) {
 		ss_ob?._delegate = delegate
 	}
 
 }
 
 public protocol ScrollviewBatchFetchingable: class {
-	func scrollView(scrollView: UIScrollView, willBeginBatchFetchWithContext context: SSBatchContext)
+	func scrollView(_ scrollView: UIScrollView, willBeginBatchFetchWithContext context: SSBatchContext)
 }
