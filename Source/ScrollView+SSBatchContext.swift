@@ -6,7 +6,13 @@
 //  Copyright © 2016年 Luoo.net. All rights reserved.
 //
 
-import UIKit
+#if os(iOS)
+    import UIKit
+    public typealias ScrollView = UIScrollView
+#elseif os(OSX)
+    import Cocoa
+    public typealias ScrollView = NSScrollView
+#endif
 import KVOBlock
 private struct AssociatedKeys {
 	static var LeadingScreensForBatching = "LeadingScreensForBatching"
@@ -58,12 +64,12 @@ public final class SSBatchContext {
 
 private final class ScrollObserver: NSObject {
 
-	fileprivate weak var _scrollview: UIScrollView?
+	fileprivate weak var _scrollview: ScrollView?
 	fileprivate lazy var _context: SSBatchContext = SSBatchContext()
 
 	weak var _delegate: ScrollviewBatchFetchingable?
 
-	init(view: UIScrollView) {
+	init(view: ScrollView) {
 		super.init()
 		_scrollview = view
 		addObserver()
@@ -85,7 +91,12 @@ private final class ScrollObserver: NSObject {
 
 				let leadingScreens = value.ss_leadingScreensForBatching
 				let contentSize = value.contentSize
-				let contentOffset = value.contentOffset
+                #if os(iOS)
+                    let contentOffset = value.contentOffset
+                #elseif os(OSX)
+                    let contentOffset = value.documentVisibleRect.origin
+                #endif
+                
 				let isVertical = bounds.width == contentSize.width
 
 				var viewLength: CGFloat = 0
@@ -104,20 +115,19 @@ private final class ScrollObserver: NSObject {
 
 				// target offset will always be 0 if the content size is smaller than the viewport
 
-				let triggerDistance = viewLength * leadingScreens
-				let remainingDistance = contentLength - viewLength - offset
-
-				if remainingDistance <= triggerDistance && remainingDistance > 0 {
-
-					if let p = value as? ScrollviewBatchFetchingable {
-						sself._context._state = .fetching
-						p.scrollView(value, willBeginBatchFetchWithContext: sself._context)
-					} else {
-						sself._context._state = .fetching
-						sself._delegate?.scrollView(value, willBeginBatchFetchWithContext: sself._context)
-					}
-
-				}
+                
+                let triggerDistance = viewLength * leadingScreens
+                let remainingDistance = contentLength - viewLength - offset
+                
+                if abs(remainingDistance) <= triggerDistance {
+                    if let p = value as? ScrollviewBatchFetchingable {
+                        sself._context._state = .fetching
+                        p.scrollView(value, willBeginBatchFetchWithContext: sself._context)
+                    } else {
+                        sself._context._state = .fetching
+                        sself._delegate?.scrollView(value, willBeginBatchFetchWithContext: sself._context)
+                    }
+                }
 			}
 
 		})
@@ -126,7 +136,7 @@ private final class ScrollObserver: NSObject {
 
 }
 
-public extension UIScrollView {
+public extension ScrollView {
 
 	/// Default is 0, set value to enable, if value < 0  will disable
 	public var ss_leadingScreensForBatching: CGFloat {
@@ -161,5 +171,5 @@ public extension UIScrollView {
 }
 
 public protocol ScrollviewBatchFetchingable: class {
-	func scrollView(_ scrollView: UIScrollView, willBeginBatchFetchWithContext context: SSBatchContext)
+	func scrollView(_ scrollView: ScrollView, willBeginBatchFetchWithContext context: SSBatchContext)
 }

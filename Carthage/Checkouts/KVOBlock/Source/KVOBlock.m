@@ -30,8 +30,7 @@
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     if (self.beObserver) {
         [self.beObserver removeObserver:self forKeyPath:self.keyPath];
     }
@@ -49,7 +48,7 @@
     observer.beObserver = self;
     observer.observationBlock = observationBlock;
     [self addObserver:observer forKeyPath:keyPath options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
-    NSDictionary * dict = @{@"keyPath" : observer};
+    NSDictionary * dict = @{keyPath : observer};
     [self.associateObserverBlockArray addObject:dict];
 }
 

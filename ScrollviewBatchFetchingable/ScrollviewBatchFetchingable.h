@@ -5,9 +5,12 @@
 //  Created by LawLincoln on 16/6/2.
 //  Copyright © 2016年 CocoaPods. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
-
+#elif TARGET_OS_OSX
+#import <Cocoa/Cocoa.h>
+#endif
 //! Project version number for ScrollviewBatchFetchingable.
 FOUNDATION_EXPORT double ScrollviewBatchFetchingableVersionNumber;
 
