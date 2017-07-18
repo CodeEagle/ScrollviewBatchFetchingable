@@ -9,11 +9,11 @@
 #if os(iOS)
     import UIKit
     public typealias ScrollView = UIScrollView
+    import KVOBlock
 #elseif os(OSX)
     import Cocoa
     public typealias ScrollView = NSScrollView
 #endif
-import KVOBlock
 private struct AssociatedKeys {
 	static var LeadingScreensForBatching = "LeadingScreensForBatching"
 	static var Observer = "Observer"
@@ -68,6 +68,7 @@ private final class ScrollObserver: NSObject {
 	fileprivate lazy var _context: SSBatchContext = SSBatchContext()
 
 	weak var _delegate: ScrollviewBatchFetchingable?
+    private var _observer: NSObjectProtocol?
 
 	init(view: ScrollView) {
 		super.init()
@@ -77,63 +78,72 @@ private final class ScrollObserver: NSObject {
 
 	deinit {
 		_delegate = nil
+        guard let ob = _observer else { return }
+        NotificationCenter.default.removeObserver(ob)
 	}
 
 	fileprivate func addObserver() {
-		_scrollview?.observeKeyPath("contentOffset", with: { [weak self](_, _, _) in
-			guard let sself = self, let value = sself._scrollview else { return }
-
-			if sself._context._state != .fetching && value.ss_leadingScreensForBatching > 0 {
-
-				let bounds = value.bounds
-				// no fetching for null states
-				if bounds.equalTo(CGRect.zero) { return }
-
-				let leadingScreens = value.ss_leadingScreensForBatching
-				let contentSize = value.contentSize
-                #if os(iOS)
-                    let contentOffset = value.contentOffset
-                #elseif os(OSX)
-                    let contentOffset = value.documentVisibleRect.origin
-                #endif
-                
-				let isVertical = bounds.width == contentSize.width
-
-				var viewLength: CGFloat = 0
-				var offset: CGFloat = 0
-				var contentLength: CGFloat = 0
-
-				if isVertical {
-					viewLength = bounds.height
-					offset = contentOffset.y
-					contentLength = contentSize.height
-				} else { // horizontal
-					viewLength = bounds.width
-					offset = contentOffset.x
-					contentLength = contentSize.width
-				}
-
-				// target offset will always be 0 if the content size is smaller than the viewport
-
-                
-                let triggerDistance = viewLength * leadingScreens
-                let remainingDistance = contentLength - viewLength - offset
-                
-                if abs(remainingDistance) <= triggerDistance {
-                    if let p = value as? ScrollviewBatchFetchingable {
-                        sself._context._state = .fetching
-                        p.scrollView(value, willBeginBatchFetchWithContext: sself._context)
-                    } else {
-                        sself._context._state = .fetching
-                        sself._delegate?.scrollView(value, willBeginBatchFetchWithContext: sself._context)
-                    }
-                }
-			}
-
-		})
-
+        #if os(iOS)
+            _scrollview?.observeKeyPath("contentOffset", with: { [weak self](_, _, _) in
+                self?.dealChange()
+            })
+        #elseif os(OSX)
+            _scrollview?.contentView.postsFrameChangedNotifications = true
+            _scrollview?.contentView.postsBoundsChangedNotifications = true
+            
+            _observer = NotificationCenter.default.addObserver(forName: NSView.boundsDidChangeNotification, object: nil, queue: OperationQueue.main) { [unowned self] _ in
+                self.dealChange()
+            }
+            
+        #endif
 	}
 
+    private func dealChange() {
+        guard let value = _scrollview else { return }
+        if _context._state != .fetching && value.ss_leadingScreensForBatching > 0 {
+            
+            let bounds = value.bounds
+            // no fetching for null states
+            if bounds.equalTo(CGRect.zero) { return }
+            
+            let leadingScreens = value.ss_leadingScreensForBatching
+            #if os(iOS)
+                let contentSize = value.contentSize
+                let contentOffset = value.contentOffset
+            #elseif os(OSX)
+                let contentSize = value.documentView?.frame.size ?? .zero
+                let contentOffset = value.contentView.bounds.origin
+            #endif
+            
+            let isVertical = bounds.width == contentSize.width
+            
+            var viewLength: CGFloat = 0
+            var offset: CGFloat = 0
+            var contentLength: CGFloat = 0
+            
+            if isVertical {
+                viewLength = bounds.height
+                offset = contentOffset.y
+                contentLength = contentSize.height
+            } else { // horizontal
+                viewLength = bounds.width
+                offset = contentOffset.x
+                contentLength = contentSize.width
+            }
+            // target offset will always be 0 if the content size is smaller than the viewport
+            let triggerDistance = viewLength * leadingScreens
+            let remainingDistance = contentLength - viewLength - offset
+            if abs(remainingDistance) <= triggerDistance {
+                if let p = value as? ScrollviewBatchFetchingable {
+                    _context._state = .fetching
+                    p.scrollView(value, willBeginBatchFetchWithContext: _context)
+                } else {
+                    _context._state = .fetching
+                    _delegate?.scrollView(value, willBeginBatchFetchWithContext: _context)
+                }
+            }
+        }
+    }
 }
 
 public extension ScrollView {
