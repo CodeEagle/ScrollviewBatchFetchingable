@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "KVOBlock.h"
 //! Project version number for ScrollviewBatchFetchingable.
 FOUNDATION_EXPORT double ScrollviewBatchFetchingableVersionNumber;
 
