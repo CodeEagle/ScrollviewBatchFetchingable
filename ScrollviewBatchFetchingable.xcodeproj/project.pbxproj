@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		105A75C92043EE0800236509 /* KVOBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A75C72043EE0800236509 /* KVOBlock.m */; };
-		105A75CA2043EE0800236509 /* KVOBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 105A75C82043EE0800236509 /* KVOBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		105A75CF2043F33100236509 /* ScrollviewBatchFetchingable.h in Headers */ = {isa = PBXBuildFile; fileRef = 105A75CD2043F33100236509 /* ScrollviewBatchFetchingable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		166F12E31D0031D400778775 /* UIScrollView+SSBatchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F12E21D0031D400778775 /* UIScrollView+SSBatchContext.swift */; };
+		10F080C220458CCF001E2398 /* KVOBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F080BC20458CCF001E2398 /* KVOBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10F080C320458CCF001E2398 /* KVOBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F080BD20458CCF001E2398 /* KVOBlock.m */; };
+		10F080C420458CCF001E2398 /* ScrollviewBatchFetchingable.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F080BE20458CCF001E2398 /* ScrollviewBatchFetchingable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10F080C520458CCF001E2398 /* UIScrollView+SSBatchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F080BF20458CCF001E2398 /* UIScrollView+SSBatchContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		105A75C72043EE0800236509 /* KVOBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KVOBlock.m; path = Source/KVOBlock.m; sourceTree = SOURCE_ROOT; };
-		105A75C82043EE0800236509 /* KVOBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVOBlock.h; path = Source/KVOBlock.h; sourceTree = SOURCE_ROOT; };
-		105A75CD2043F33100236509 /* ScrollviewBatchFetchingable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollviewBatchFetchingable.h; path = Source/ScrollviewBatchFetchingable.h; sourceTree = SOURCE_ROOT; };
-		105A75CE2043F33100236509 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
+		10F080BC20458CCF001E2398 /* KVOBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOBlock.h; sourceTree = "<group>"; };
+		10F080BD20458CCF001E2398 /* KVOBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOBlock.m; sourceTree = "<group>"; };
+		10F080BE20458CCF001E2398 /* ScrollviewBatchFetchingable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollviewBatchFetchingable.h; sourceTree = "<group>"; };
+		10F080BF20458CCF001E2398 /* UIScrollView+SSBatchContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+SSBatchContext.swift"; sourceTree = "<group>"; };
+		10F080C720458CDD001E2398 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16061A911D002D8200055A4B /* ScrollviewBatchFetchingable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScrollviewBatchFetchingable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		166F12E21D0031D400778775 /* UIScrollView+SSBatchContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+SSBatchContext.swift"; path = "Source/UIScrollView+SSBatchContext.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,22 +33,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16061A921D002D8200055A4B /* ScrollviewBatchFetchingable */ = {
+		10F080BA20458CCF001E2398 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				166F12E21D0031D400778775 /* UIScrollView+SSBatchContext.swift */,
-				105A75C82043EE0800236509 /* KVOBlock.h */,
-				105A75C72043EE0800236509 /* KVOBlock.m */,
-				105A75CE2043F33100236509 /* Info.plist */,
-				105A75CD2043F33100236509 /* ScrollviewBatchFetchingable.h */,
+				10F080C720458CDD001E2398 /* Info.plist */,
+				10F080BC20458CCF001E2398 /* KVOBlock.h */,
+				10F080BD20458CCF001E2398 /* KVOBlock.m */,
+				10F080BE20458CCF001E2398 /* ScrollviewBatchFetchingable.h */,
+				10F080BF20458CCF001E2398 /* UIScrollView+SSBatchContext.swift */,
 			);
-			path = ScrollviewBatchFetchingable;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				16061A921D002D8200055A4B /* ScrollviewBatchFetchingable */,
+				10F080BA20458CCF001E2398 /* Source */,
 				607FACD11AFB9204008FA782 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,8 +68,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				105A75CA2043EE0800236509 /* KVOBlock.h in Headers */,
-				105A75CF2043F33100236509 /* ScrollviewBatchFetchingable.h in Headers */,
+				10F080C220458CCF001E2398 /* KVOBlock.h in Headers */,
+				10F080C420458CCF001E2398 /* ScrollviewBatchFetchingable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				105A75C92043EE0800236509 /* KVOBlock.m in Sources */,
-				166F12E31D0031D400778775 /* UIScrollView+SSBatchContext.swift in Sources */,
+				10F080C520458CCF001E2398 /* UIScrollView+SSBatchContext.swift in Sources */,
+				10F080C320458CCF001E2398 /* KVOBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
