@@ -13,7 +13,12 @@ public protocol ScrollviewBatchFetchingable: class {
 }
 public final class BatchFetchingContext {
 
-	fileprivate lazy var _state: BatchFetchingContextState = .completed
+    public lazy var stateChangedHandler: (BatchFetchingContextState) -> Void = { _ in }
+    public private(set) var state: BatchFetchingContextState = .none {
+        didSet {
+            stateChangedHandler(state)
+        }
+    }
     
     /// Default is 0, set value to enable, if value < 0  will disable
     public var leadingScreensForBatching: CGFloat = 0
@@ -29,29 +34,21 @@ public final class BatchFetchingContext {
 		let sem = DispatchSemaphore(value: 0)
 		var isFetching = false
         _lockQueue.async {
-			isFetching = self._state == .fetching
+			isFetching = self.state == .fetching
 			sem.signal()
 		}
 		_ = sem.wait(timeout: DispatchTime.distantFuture)
 		return isFetching
 	}
 
-	public func batchFetchingWasCancelled() {
-		performLock { self._state = .cancelled }
-	}
-
-	public func completeBatchFetching(_ didComplete: Bool = true) {
-		if didComplete == false { return }
-		performLock { self._state = .completed }
+	public func completeBatchFetching() {
+		performLock { self.state = .completed }
 	}
 
 	public func beginBatchFetching() {
-		performLock { self._state = .fetching }
+		performLock { self.state = .fetching }
 	}
 
-	public func cancelBatchFetching() {
-		performLock { self._state = .cancelled }
-	}
 }
 
 private final class ScrollObserver: NSObject {
@@ -69,7 +66,7 @@ private final class ScrollObserver: NSObject {
 		_scrollview?.observeKeyPath("contentOffset", with: { [weak self](_, _, _) in
 			guard let sself = self, let value = sself._scrollview else { return }
 
-            guard sself.context._state != .fetching, sself.context.leadingScreensForBatching > 0 else { return }
+            guard sself.context.state != .fetching, sself.context.leadingScreensForBatching > 0 else { return }
 
             let bounds = value.bounds
             // no fetching for null states
@@ -98,7 +95,7 @@ private final class ScrollObserver: NSObject {
             let triggerDistance = viewLength * leadingScreens
             let remainingDistance = contentLength - viewLength - offset
             guard  remainingDistance <= triggerDistance, remainingDistance > 0 else { return }
-            sself.context._state = .fetching
+            sself.context.beginBatchFetching()
             var delegate: ScrollviewBatchFetchingable? = sself.context.delegate
             if let p = value as? ScrollviewBatchFetchingable { delegate = p }
             delegate?.scrollView(value, willBeginBatchFetchWithContext: sself.context)
@@ -128,4 +125,4 @@ private struct AssociatedKeys {
     static var Observer = "Observer"
 }
 
-public enum BatchFetchingContextState { case fetching, cancelled, completed }
+public enum BatchFetchingContextState { case fetching, completed, none }
